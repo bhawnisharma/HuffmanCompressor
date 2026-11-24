@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encode - Huffman Compressor</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <span class="brand">Huffman Compressor</span>
+    <a href="index.html" class="active">Encode</a>
+    <a href="decode.html">Decode</a>
+    <a href="history">History</a>
+  </nav>
+
+  <main class="container">
+    <h1>Encode text</h1>
+
+    <form class="card" action="encode" method="post">
+      <label for="text">Your text</label>
+      <textarea id="text" name="text" placeholder="Example: ABRACADABRA" required></textarea>
+      <button class="btn" type="submit">Encode</button>
+    </form>
+
+    <section class="card">
+      <h2>Result</h2>
+
+      <div class="stats">
+        <div class="stat"><div class="value">88</div><div class="name">Original bits</div></div>
+        <div class="stat"><div class="value">23</div><div class="name">Compressed bits</div></div>
+        <div class="stat"><div class="value">73.86%</div><div class="name">Space saved</div></div>
+        <div class="stat"><div class="value">3.83</div><div class="name">Ratio</div></div>
+      </div>
+
+      <h3>Code table</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Symbol</th><th>Frequency</th><th>Huffman code</th></tr>
+          <tr><td>A</td><td>5</td><td class="code">0</td></tr>
+          <tr><td>B</td><td>2</td><td class="code">100</td></tr>
+          <tr><td>R</td><td>2</td><td class="code">101</td></tr>
+          <tr><td>C</td><td>1</td><td class="code">110</td></tr>
+          <tr><td>D</td><td>1</td><td class="code">111</td></tr>
+        </table>
+      </div>
+
+      <!-- Encoded bits -->
+      <h3>Encoded bits</h3>
+      <div class="bits-box">01001010110010011101001010</div>
+
+      <form action="save" method="post" style="margin-top:16px">
+        <input type="hidden" name="text" value="ABRACADABRA">
+        <button class="btn secondary" type="submit">Save record</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>

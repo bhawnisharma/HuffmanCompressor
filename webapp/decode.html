@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decode - Huffman Compressor</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <span class="brand">Huffman Compressor</span>
+    <a href="index.html">Encode</a>
+    <a href="decode.html" class="active">Decode</a>
+    <a href="history">History</a>
+  </nav>
+
+  <main class="container">
+    <h1>Decode bits</h1>
+
+    
+    <form class="card" action="decode" method="post">
+
+      <label for="bits">Encoded bits (only 0 and 1)</label>
+      <textarea id="bits" name="bits" placeholder="Example: 01001010110010011101001010"
+                pattern="[01]+" required></textarea>
+
+      <label for="recordId">Record ID (see the History page)</label>
+      <input type="number" id="recordId" name="id" min="1" placeholder="Example: 1" required>
+
+      <button class="btn" type="submit">Decode</button>
+    </form>
+
+
+    <section class="card">
+      <h2>Original text</h2>
+      <div class="bits-box" style="color:var(--ink)">ABRACADABRA</div>
+    </section>
+  </main>
+
+</body>
+</html>
