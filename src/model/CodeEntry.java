@@ -1,11 +1,10 @@
 package model;
 
 public class CodeEntry {
+
     private String symbol;
     private int frequency;
     private String huffmanCode;
-
-    public CodeEntry() {}
 
     public CodeEntry(String symbol, int frequency, String huffmanCode) {
         this.symbol = symbol;
