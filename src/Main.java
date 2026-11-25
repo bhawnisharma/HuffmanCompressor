@@ -1,4 +1,3 @@
-
 import algorithm.HuffmanEncoder;
 import algorithm.HuffmanDecoder;
 
@@ -12,49 +11,52 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-   String text = "BANANA";
-      ValidationUtil.validateText(text);
+        String text = "BANANA";
+        ValidationUtil.validateText(text);
 
-      HuffmanEncoder encoder = new HuffmanEncoder();
+        HuffmanEncoder encoder = new HuffmanEncoder();
 
-CompressionResult result = encoder.encode(text);
+        CompressionResult result = encoder.encode(text);
 
-Map<Character, Integer> frequency = result.getFrequencyMap();
-Map<Character, String> codes = result.getCodeTable();
+        Map<Character, Integer> frequency = result.getFrequencyMap();
+        Map<Character, String> codes = result.getCodeTable();
 
-String encoded = result.getEncodedBits();
+        String encoded = result.getEncodedBits();
 
-        // Step 6: Decode encoded text
+        // Decode encoded text
         HuffmanDecoder decoder = new HuffmanDecoder();
-
         String decoded = decoder.decode(encoded, codes);
-        System.out.println("\nHuffman Code Table:");
-System.out.println("Symbol\tFrequency\tCode");
 
-for (CodeEntry entry : result.getCodeEntries()) {
-    System.out.println(
-        SymbolUtil.toSymbolName(entry.getSymbol()) + "\t" +
-        entry.getFrequency() + "\t\t" +
-        entry.getHuffmanCode()
-    );
-}
+        System.out.println("\nHuffman Code Table:");
+        System.out.println("Symbol\tFrequency\tCode");
+
+        for (CodeEntry entry : result.getCodeEntries()) {
+            System.out.println(
+                SymbolUtil.toSymbolName(entry.getSymbol().charAt(0)) + "\t" +
+                entry.getFrequency() + "\t\t" +
+                entry.getHuffmanCode()
+            );
+        }
 
         // Display results
         System.out.println("Original Text: " + text);
+
         System.out.println("\nFrequencies:");
-for (Map.Entry<Character, Integer> entry : frequency.entrySet()) {
-    System.out.println(
-        SymbolUtil.toSymbolName(entry.getKey()) +
-        " = " + entry.getValue()
-    );
-}
+        for (Map.Entry<Character, Integer> entry : frequency.entrySet()) {
+            System.out.println(
+                SymbolUtil.toSymbolName(entry.getKey()) +
+                " = " + entry.getValue()
+            );
+        }
+
         System.out.println("\nHuffman Codes:");
-for (Map.Entry<Character, String> entry : codes.entrySet()) {
-    System.out.println(
-        SymbolUtil.toSymbolName(entry.getKey()) +
-        " = " + entry.getValue()
-    );
-}
+        for (Map.Entry<Character, String> entry : codes.entrySet()) {
+            System.out.println(
+                SymbolUtil.toSymbolName(entry.getKey()) +
+                " = " + entry.getValue()
+            );
+        }
+
         System.out.println("Encoded Binary: " + encoded);
 
         System.out.println("Original Size: " +
@@ -75,5 +77,3 @@ for (Map.Entry<Character, String> entry : codes.entrySet()) {
                 result.isCompressionSuccessful(decoded));
     }
 }
-
-

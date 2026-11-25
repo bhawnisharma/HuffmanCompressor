@@ -1,4 +1,3 @@
-
 package model;
 
 import java.util.Map;
@@ -38,7 +37,7 @@ public class CompressionResult {
         for (char ch : frequencyMap.keySet()) {
 
             CodeEntry entry = new CodeEntry(
-                ch,
+                String.valueOf(ch),
                 frequencyMap.get(ch),
                 codeTable.get(ch)
             );
@@ -52,7 +51,7 @@ public class CompressionResult {
         if (originalBits > 0) {
 
             this.savedPercent =
-                ((double)(originalBits - compressedBits)
+                ((double) (originalBits - compressedBits)
                 / originalBits) * 100;
 
             this.ratio = compressedBits > 0
@@ -64,42 +63,44 @@ public class CompressionResult {
             this.ratio = 0;
         }
     }
+
     public boolean isCompressionSuccessful(String decodedText) {
-    return originalText.equals(decodedText);
-}
-public String getOriginalText() {
-    return originalText;
-}
+        return originalText.equals(decodedText);
+    }
 
-public String getEncodedBits() {
-    return encodedBits;
-}
+    public String getOriginalText() {
+        return originalText;
+    }
 
-public Map<Character, Integer> getFrequencyMap() {
-    return frequencyMap;
-}
+    public String getEncodedBits() {
+        return encodedBits;
+    }
 
-public Map<Character, String> getCodeTable() {
-    return codeTable;
-}
+    public Map<Character, Integer> getFrequencyMap() {
+        return frequencyMap;
+    }
 
-public List<CodeEntry> getCodeEntries() {
-    return codeEntries;
-}
+    public Map<Character, String> getCodeTable() {
+        return codeTable;
+    }
 
-public int getOriginalBits() {
-    return originalBits;
-}
+    public List<CodeEntry> getCodeEntries() {
+        return codeEntries;
+    }
 
-public int getCompressedBits() {
-    return compressedBits;
-}
+    public int getOriginalBits() {
+        return originalBits;
+    }
 
-public double getSavedPercent() {
-    return savedPercent;
-}
+    public int getCompressedBits() {
+        return compressedBits;
+    }
 
-public double getRatio() {
-    return ratio;
-}
+    public double getSavedPercent() {
+        return savedPercent;
+    }
+
+    public double getRatio() {
+        return ratio;
+    }
 }
